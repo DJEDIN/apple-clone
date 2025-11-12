@@ -110,3 +110,88 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+/* Reset osnovnih margina */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* NAVBAR */
+.navbar {
+  width: 100%;
+  background-color: #000;
+  color: rgba(150, 150, 150, .8);
+  padding: 10px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.navbar-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* LOGO */
+.logo, .lupa {
+  height: 24px;
+  width: auto;
+  color: rgba(150, 150, 150, 0.8);
+}
+
+.kesa{
+    height: 30px;
+    width: auto;
+    color: rgba(150, 150, 150, 0.8);
+}
+
+/* LINKOVI */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  color: rgba(150, 150, 150, .8);
+}
+
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #888;
+}
+
+/* HERO sekcija */
+.hero {
+  height: 100vh;
+  background-color: #f5f5f7;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 60px; /* da navbar ne pokrije naslov */
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: #1d1d1f;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #6e6e73;
+}
