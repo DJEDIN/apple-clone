@@ -266,3 +266,54 @@ hr {
       display: none; /* Ovde bi inače išao hamburger meni */
   }
 }
+
+/* --- GRID SEKCIJA --- */
+.grid-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Dve kolone jednake širine */
+  gap: 12px; /* Razmak između kocki */
+  padding: 0 12px 12px 12px; /* Margine sa strane i dole */
+  max-width: 100%;
+}
+
+.grid-item {
+  height: 580px;
+  background-color: #f5f5f7;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.item-dark {
+  background-color: #000;
+  color: #fff;
+}
+
+.item-light {
+  background-color: #fbfbfd;
+  color: #1d1d1f;
+}
+
+.grid-headline {
+  font-size: 34px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.grid-subhead {
+  font-size: 19px;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+/* RESPONSIVE ZA GRID */
+@media (max-width: 768px) {
+  .grid-section {
+    grid-template-columns: 1fr; /* Na mobilnom jedna ispod druge */
+  }
+}
