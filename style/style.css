@@ -39,14 +39,32 @@ body {
   width: 100%;
 }
 
+/* LINKOVI */
 .nav-links a {
   text-decoration: none;
   color: #d6d6d6;
-  font-size: 12px; /* Apple koristi baš sitan font u meniju */
+  font-size: 13px; /* PROMENJENO: Sa 12px na 13px */
   transition: color 0.3s;
-  opacity: 0.8;
+  opacity: 0.9; /* Malo veća vidljivost */
+  font-weight: 300;
 }
 
+.nav-links a:hover {
+  color: #fff;
+  opacity: 1;
+}
+
+/* Stil za Apple Logo (koristim Font Awesome ikonicu kao referencu) */
+.apple-logo i {
+    font-size: 17px; /* Povećaj ikonicu */
+    color: #fff !important; /* Bele boje da se ističe */
+    opacity: 1;
+}
+
+/* Stil za Lupu i Kesu */
+.fas.fa-search, .fas.fa-shopping-bag {
+    font-size: 14px; /* Povećaj ikonice sa strane */
+}
 .nav-links a:hover {
   color: #fff;
   opacity: 1;
