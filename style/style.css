@@ -407,13 +407,25 @@ hr {
     visibility: hidden;
     
     position: fixed;
-    top: 44px; 
+    
     left: 0;
     width: 100%;
-height: auto; 
-min-height: 250px;
-padding-top: 30px; 
-padding-bottom: 50px; 
+
+.mega-menu {
+    /* ... (ostali stilovi ostaju isti) ... */
+    
+    /* KLJUČNO: Počinje na 0px, preklapajući navigaciju */
+    top: 0; 
+    
+    /* Povećaj visinu da pokrije navigaciju (44px nav + 400px sadržaj) */
+    height: 444px; 
+    
+    /* Gurni sadržaj menija ispod navigacije */
+    padding-top: 74px; /* (30px starog paddinga + 44px nav visine) */
+    padding-bottom: 50px;
+    
+    /* ... (ostali stilovi ostaju isti) ... */
+}
     
    /* KLJUČNA PROMENA: Crna, potpuno neprozirna boja (alpha 1.0) */
     background-color: rgba(22, 22, 23, 1.0); 
@@ -486,15 +498,4 @@ padding-bottom: 50px;
     /* PROMENJENO: Prikazivanje sa tranzicijom */
     opacity: 1;
     visibility: visible;
-}
-
-/* SINKRONIZACIJA: Kada se otvori Mega Meni, Navigacija postaje neprozirna */
-
-/* Koristimo hover na roditeljskom elementu li.has-dropdown:hover,
-   da bi promenili stil na samom .navbar elementu */
-.nav-links li.has-dropdown:hover ~ .navbar,
-.nav-links li.has-dropdown:hover .navbar { 
-    /* Postavimo da bude potpun neprovidan */
-    background-color: rgba(22, 22, 23, 1.0); 
-    backdrop-filter: none;
 }
