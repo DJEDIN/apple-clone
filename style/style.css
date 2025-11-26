@@ -1,197 +1,268 @@
-footer {
-  background-color: #f5f5f7;
-  color: #1d1d1f;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-size: 13px;
-  padding: 40px 20px;
-}
-
-.footer-container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.footer-columns {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 20px;
-  margin-bottom: 30px;
-}
-
-/* Top columns i bottom columns su sada bliže */
-.top-columns {
-  margin-bottom: 20px;
-}
-.bottom-columns {
-  margin-bottom: 30px; /* manje prostora između njih i footer-bottom */
-}
-
-.column h3 {
-  font-size: 12px;
-  font-weight: 600;
-  margin-bottom: 10px;
-  color: #6e6e73;
-}
-
-.column ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.column li {
-  margin-bottom: 7px;
-}
-
-.column a {
-  color: #1d1d1f;
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-.column a:hover {
-  color: #06c;
-}
-
-.footer-bottom {
-  font-size: 12px;
-  color: #6e6e73;
-}
-
-.shop-more {
-  margin-bottom: 20px;
-}
-
-.footer-bottom hr {
-  border: none;
-  border-top: 1px solid #d2d2d7;
-  margin-bottom: 20px;
-}
-
-.bottom-info {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-.bottom-links {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 0;
-  padding: 0;
-}
-
-.bottom-links a {
-  color: #6e6e73;
-  text-decoration: none;
-}
-
-.bottom-links a:hover {
-  color: #000;
-}
-
-.country {
-  color: #6e6e73;
-}
-
-/* RESPONSIVE: manje ekrane kolone se slažu vertikalno */
-@media (max-width: 900px) {
-  .footer-columns {
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 15px;
-  }
-}
-@media (max-width: 600px) {
-  .footer-columns {
-    grid-template-columns: 1fr;
-  }
-}
-/* Reset osnovnih margina */
+/* RESET I OSNOVE */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #fff;
+  color: #1d1d1f;
+  overflow-x: hidden; /* Sprečava horizontalni skrol */
+}
 
-/* NAVBAR */
+/* --- NAVBAR --- */
 .navbar {
   width: 100%;
-  background-color: #000;
-  color: rgba(150, 150, 150, .8);
-  padding: 10px 0;
+  background-color: rgba(0, 0, 0, 0.92); /* Malo providna crna */
+  height: 44px;
   position: fixed;
   top: 0;
-  left: 0;
-  z-index: 100;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .navbar-container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  width: 100%;
+  max-width: 1000px;
 }
 
-/* LOGO */
-.logo, .lupa {
-  height: 24px;
-  width: auto;
-  color: rgba(150, 150, 150, 0.8);
-}
-
-.kesa{
-    height: 30px;
-    width: auto;
-    color: rgba(150, 150, 150, 0.8);
-}
-
-/* LINKOVI */
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 30px;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  color: rgba(150, 150, 150, .8);
+  padding: 0 20px;
+  width: 100%;
 }
-
 
 .nav-links a {
   text-decoration: none;
-  color: white;
-  font-size: 14px;
+  color: #d6d6d6;
+  font-size: 12px; /* Apple koristi baš sitan font u meniju */
   transition: color 0.3s;
+  opacity: 0.8;
 }
 
 .nav-links a:hover {
-  color: #888;
+  color: #fff;
+  opacity: 1;
 }
 
-/* HERO sekcija */
-.hero {
-  height: 100vh;
-  background-color: #f5f5f7;
+/* --- HERO SECTIONS (Glavni delovi) --- */
+main {
+  margin-top: 44px; /* Da sadržaj ne ode pod navbar */
+}
+
+.hero-section {
+  width: 100%;
+  height: 580px; /* Visina sekcije */
+  position: relative;
+  text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding-top: 60px; /* da navbar ne pokrije naslov */
+  padding-top: 55px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-bottom: 12px; /* Razmak između sekcija */
+  cursor: pointer;
 }
 
-.hero h1 {
-  font-size: 3rem;
+.content-wrapper {
+  z-index: 10;
+}
+
+.headline {
+  font-size: 56px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.subhead {
+  font-size: 28px;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+/* Specifični stilovi za svaku sekciju */
+
+/* 1. iPhone Pro (Crna pozadina, beli tekst) */
+.iphone-pro-section {
+  background-color: #000;
+  color: #f5f5f7;
+  /* Ovde ubaci svoju sliku: background-image: url('../assets/iphone16pro.jpg'); */
+}
+
+/* 2. iPhone 16 (Svetla pozadina) */
+.iphone-section {
+  background-color: #f5f5f7; /* Svetlo siva/bela */
+  color: #1d1d1f;
+  /* background-image: url('../assets/iphone16.jpg'); */
+}
+
+/* 3. Watch (Crna pozadina) */
+.watch-section {
+  background-color: #000;
+  color: #fff;
+  /* background-image: url('../assets/watch.jpg'); */
+}
+
+.series-tag {
+  color: #e30000; /* Crvena boja za Series tag */
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+
+/* DUGMAD (CTA) */
+.cta-links {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 17px;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+/* Plavo dugme (Learn more) */
+.btn-blue {
+  background-color: #0071e3;
+  color: white;
+}
+
+.btn-blue:hover {
+  background-color: #0077ed;
+}
+
+/* Outline dugme (Buy) */
+.btn-outline {
+  border: 1px solid #0071e3;
+  color: #0071e3;
+}
+.iphone-pro-section .btn-outline {
+    /* Na crnoj pozadini outline mora biti drugačiji ako želimo */
+    border: 1px solid #0071e3; 
+}
+
+.btn-outline:hover {
+  background-color: #0071e3;
+  color: white;
+}
+
+
+/* --- FOOTER (Tvoj stil + malo dorade) --- */
+footer {
+  background-color: #f5f5f7;
+  color: #1d1d1f;
+  font-size: 12px;
+  padding: 40px 20px;
+}
+
+.footer-container {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.footer-notes {
+    color: #6e6e73;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+.footer-columns {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 kolona */
+  gap: 20px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.column h3 {
+  font-size: 12px;
+  font-weight: 600;
   margin-bottom: 10px;
   color: #1d1d1f;
 }
 
-.hero p {
-  font-size: 1.2rem;
+.column ul {
+  list-style: none;
+}
+
+.column li {
+  margin-bottom: 8px;
+}
+
+.column a {
+  color: #424245;
+  text-decoration: none;
+}
+
+.column a:hover {
+  text-decoration: underline;
+  color: #1d1d1f;
+}
+
+.footer-bottom {
   color: #6e6e73;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #d2d2d7;
+    margin: 20px 0;
+}
+
+.bottom-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.bottom-links {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+}
+
+.bottom-links a {
+    color: #424245;
+    text-decoration: none;
+    border-right: 1px solid #d2d2d7;
+    padding-right: 10px;
+}
+.bottom-links li:last-child a {
+    border-right: none;
+}
+
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .footer-columns {
+    grid-template-columns: repeat(2, 1fr); /* 2 kolone na tabletu */
+  }
+  
+  .headline {
+      font-size: 32px;
+  }
+  .subhead {
+      font-size: 19px;
+  }
+  .nav-links {
+      display: none; /* Ovde bi inače išao hamburger meni */
+  }
 }
