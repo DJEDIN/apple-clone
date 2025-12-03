@@ -409,12 +409,9 @@ hr {
     position: fixed;
     
     left: 0;
-    width: 100%;
-
-.mega-menu {
-    /* ... (ostali stilovi ostaju isti) ... */
-    
-    /* KLJUČNO: Počinje na 0px, preklapajući navigaciju */
+    width: 100%; 
+min-height: 250px;
+/* KLJUČNO: Počinje na 0px, preklapajući navigaciju */
     top: 0; 
     
     /* Povećaj visinu da pokrije navigaciju (44px nav + 400px sadržaj) */
@@ -422,10 +419,7 @@ hr {
     
     /* Gurni sadržaj menija ispod navigacije */
     padding-top: 74px; /* (30px starog paddinga + 44px nav visine) */
-    padding-bottom: 50px;
-    
-    /* ... (ostali stilovi ostaju isti) ... */
-}
+    padding-bottom: 50px; 
     
    /* KLJUČNA PROMENA: Crna, potpuno neprozirna boja (alpha 1.0) */
     background-color: rgba(22, 22, 23, 1.0); 
