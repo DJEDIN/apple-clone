@@ -489,3 +489,34 @@ hr {
     grid-template-columns: 1fr; /* Na mobilnom jedna ispod druge */
   }
 }
+
+/* --- STILIZACIJA HERO SLIKA (PNG) --- */
+.hero-image {
+    position: absolute;
+    bottom: 0; /* Postavi sliku na dno sekcije */
+    left: 50%;
+    transform: translateX(-50%); /* Centriraj sliku horizontalno */
+    
+    /* Početne dimenzije */
+    width: 600px; 
+    height: auto;
+    
+    z-index: 5; /* Ispod teksta (content-wrapper z-index: 10) */
+    
+    pointer-events: none; /* Omogućava klik na CTA linkove ispod slike */
+}
+
+/* Prilagođavanje za specifičnu sekciju */
+.iphone-pro-section .hero-image {
+    /* Moguće je ovde prilagoditi veličinu ili donju marginu za ovu sekciju */
+    width: 500px;
+    bottom: -100px; /* Spusti malo sliku ako je potrebno da izgleda veće */
+}
+
+/* RESPONSIVE za sliku */
+@media (max-width: 768px) {
+    .hero-image {
+        width: 80%; /* Smanji širinu na mobilnom */
+        bottom: -50px;
+    }
+}
