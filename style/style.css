@@ -1,4 +1,6 @@
-/* RESET I OSNOVE */
+/* ========================================================================= */
+/* RESET I OSNOVE                              */
+/* ========================================================================= */
 * {
   margin: 0;
   padding: 0;
@@ -9,11 +11,13 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   background-color: #fff;
   color: #1d1d1f;
-  overflow-x: hidden; /* Sprečava horizontalni skrol */
+  overflow-x: hidden;
 }
 
-/* --- NAVBAR --- */
-/* --- NAVBAR --- */
+/* ========================================================================= */
+/* NAVBAR & MEGA MENU                          */
+/* ========================================================================= */
+
 .navbar {
     display: flex;
     justify-content: center;
@@ -22,19 +26,15 @@ body {
     height: 44px;
     width: 100%;
     
-    /* KLJUČNE PROMENE ZA PROVIDNOST */
-    /* Boja koju si dao: tamna sa 80% neprozirnosti */
+    /* PROVIDNOST I BLUR */
     background-color: rgba(22, 22, 23, .8); 
-    
-    /* Efekat zamućenja (blur) */
     backdrop-filter: blur(10px); 
     
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 999;
+    z-index: 999; /* Navigacija je najviša */
     
-    /* Tranzicija da bi promena bila glatka */
     transition: background-color 0.4s ease, backdrop-filter 0.4s ease; 
 }
 
@@ -52,13 +52,24 @@ body {
   width: 100%;
 }
 
-/* LINKOVI */
+/* --- Z-INDEX FIX: Sadržaj iznad Mega Menija (z-index: 990) --- */
+/* Svaki element koji se ne sme prekriti mora imati position: relative i z-index > 990 */
+.nav-links li, 
+.nav-links a, 
+.fa-apple, 
+.fa-search, 
+.fa-shopping-bag { 
+    position: relative; 
+    z-index: 995; 
+}
+
+/* NAV LINKOVI */
 .nav-links a {
   text-decoration: none;
   color: #d6d6d6;
-  font-size: 13px; /* PROMENJENO: Sa 12px na 13px */
+  font-size: 13px; 
   transition: color 0.3s;
-  opacity: 0.9; /* Malo veća vidljivost */
+  opacity: 0.9; 
   font-weight: 300;
 }
 
@@ -67,30 +78,113 @@ body {
   opacity: 1;
 }
 
-/* Stil za Apple Logo (koristim Font Awesome ikonicu kao referencu) */
+/* LOGO I IKONE */
 .apple-logo i {
-    font-size: 17px; /* Povećaj ikonicu */
-    color: #fff !important; /* Bele boje da se ističe */
+    font-size: 17px; 
+    color: #fff !important; 
     opacity: 1;
 }
 
-/* Stil za Lupu i Kesu */
 .fas.fa-search, .fas.fa-shopping-bag {
-    font-size: 14px; /* Povećaj ikonice sa strane */
-}
-.nav-links a:hover {
-  color: #fff;
-  opacity: 1;
+    font-size: 14px; 
 }
 
-/* --- HERO SECTIONS (Glavni delovi) --- */
+/* --- MEGA MENU STILIZACIJA --- */
+
+.nav-links li.has-dropdown {
+    position: relative;
+}
+
+.mega-menu {
+    opacity: 0;
+    visibility: hidden;
+    
+    position: fixed;
+    left: 0;
+    width: 100%;
+    
+    /* Prekriva navigaciju da bi izgledalo neprozirno */
+    top: 0; 
+    height: 444px; 
+    padding-top: 74px; /* Gura sadržaj ispod Navbara */
+    padding-bottom: 50px;
+    
+    /* NEPROZIRNA CRNA POZADINA */
+    background-color: rgba(22, 22, 23, 1.0); 
+    backdrop-filter: none;
+    
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    z-index: 990; 
+    
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out; 
+}
+
+.menu-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center; 
+    gap: 60px;
+    padding: 0 20px;
+}
+
+.menu-column {
+    width: 200px;
+}
+
+.menu-column h4 {
+    font-size: 10px;
+    color: #7e7e80; 
+    text-transform: uppercase;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+.menu-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* GLAVNI LINKOVI U MENIJU (Veliki font) */
+.menu-column a {
+    color: #d6d6d6; 
+    font-size: 24px; 
+    font-weight: 600;
+    line-height: 1.5;
+    transition: color 0.2s;
+    opacity: 1; 
+}
+
+/* MANJI LINKOVI UNUTAR MENIJA */
+.menu-column-small-link a {
+    color: #dfdfdf; 
+    font-size: 13px; 
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.menu-column a:hover {
+    color: #0071e3; 
+    text-decoration: none;
+}
+
+/* LOGIKA ZA PRIKAZIVANJE */
+.nav-links li.has-dropdown:hover .mega-menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* ========================================================================= */
+/* HERO SEKCIJE                                */
+/* ========================================================================= */
 main {
   margin-top: 44px; /* Da sadržaj ne ode pod navbar */
 }
 
 .hero-section {
   width: 100%;
-  height: 580px; /* Visina sekcije */
+  height: 580px; 
   position: relative;
   text-align: center;
   display: flex;
@@ -99,7 +193,7 @@ main {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  margin-bottom: 12px; /* Razmak između sekcija */
+  margin-bottom: 12px; 
   cursor: pointer;
 }
 
@@ -194,7 +288,9 @@ main {
 }
 
 
-/* --- FOOTER (Tvoj stil + malo dorade) --- */
+/* ========================================================================= */
+/* FOOTER                                      */
+/* ========================================================================= */
 footer {
   background-color: #f5f5f7;
   color: #1d1d1f;
@@ -215,7 +311,7 @@ footer {
 
 .footer-columns {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* 5 kolona */
+  grid-template-columns: repeat(5, 1fr); 
   gap: 20px;
   margin-top: 20px;
   margin-bottom: 30px;
@@ -281,29 +377,14 @@ hr {
 }
 
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .footer-columns {
-    grid-template-columns: repeat(2, 1fr); /* 2 kolone na tabletu */
-  }
-  
-  .headline {
-      font-size: 32px;
-  }
-  .subhead {
-      font-size: 19px;
-  }
-  .nav-links {
-      display: none; /* Ovde bi inače išao hamburger meni */
-  }
-}
-
-/* --- GRID SEKCIJA --- */
+/* ========================================================================= */
+/* GRID SEKCIJA                                */
+/* ========================================================================= */
 .grid-section {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Dve kolone jednake širine */
-  gap: 12px; /* Razmak između kocki */
-  padding: 0 12px 12px 12px; /* Margine sa strane i dole */
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 12px; 
+  padding: 0 12px 12px 12px; 
   max-width: 100%;
 }
 
@@ -342,22 +423,15 @@ hr {
   margin-bottom: 15px;
 }
 
-/* RESPONSIVE ZA GRID */
-@media (max-width: 768px) {
-  .grid-section {
-    grid-template-columns: 1fr; /* Na mobilnom jedna ispod druge */
-  }
-}
-
 /* --- PROMO SEKCIJA (Apple TV+) --- */
 .promo-section {
   width: 100%;
-  height: 480px; /* Nešto manja visina nego glavni Hero */
+  height: 480px; 
   margin-bottom: 12px;
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centriranje po vertikali */
+  justify-content: center; 
   align-items: center;
   background-position: center;
   background-size: cover;
@@ -373,7 +447,7 @@ hr {
 }
 
 .promo-tag {
-    color: #fca000; /* Zlatna/žuta boja */
+    color: #fca000; 
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 5px;
@@ -393,109 +467,25 @@ hr {
     color: #c9c9c9;
 }
 
-/* --- MEGA MENU STILIZACIJA --- */
-
-/* Parent element (<li>) mora biti relativan */
-.nav-links li.has-dropdown {
-    position: relative;
-}
-
-/* Osnovni stilovi za Mega Menu */
-.mega-menu {
-    /* Skriveno po defaultu, sada koristimo opacity/visibility za tranziciju */
-    opacity: 0;
-    visibility: hidden;
-    
-    position: fixed;
-    
-    left: 0;
-    width: 100%;
-
-.mega-menu {
-    /* ... (ostali stilovi ostaju isti) ... */
-    
-    /* KLJUČNO: Počinje na 0px, preklapajući navigaciju */
-    top: 0; 
-    
-    /* Povećaj visinu da pokrije navigaciju (44px nav + 400px sadržaj) */
-    height: 444px; 
-    
-    /* Gurni sadržaj menija ispod navigacije */
-    padding-top: 74px; /* (30px starog paddinga + 44px nav visine) */
-    padding-bottom: 50px;
-    
-    /* ... (ostali stilovi ostaju isti) ... */
-}
-    
-   /* KLJUČNA PROMENA: Crna, potpuno neprozirna boja (alpha 1.0) */
-    background-color: rgba(22, 22, 23, 1.0); 
-    
-    /* NE ŽELIMO BLUR NA MENIJU */
-    backdrop-filter: none;
-    
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    z-index: 990; 
-    
-    /* PROMENJENO: Dodavanje tranzicije za glatko spuštanje */
-    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out; 
-    
-}
-
-.menu-content {
-    max-width: 1000px;
-    margin: 0 auto;
-    display: flex;
-    /* CENTRIRAMO SADRŽAJ (Apple obično centrira menije) */
-    justify-content: center; 
-    gap: 60px; /* Povećavamo razmak između kolona */
-    padding: 0 20px;
-}
-
-.menu-column {
-    width: 200px;
-}
-
-.menu-column h4 {
-    font-size: 10px;
-    /* PROMENJENO: Beli tekst zbog tamne pozadine */
-    color: #7e7e80; 
-    text-transform: uppercase;
-    font-weight: 400;
-    margin-bottom: 8px;
-}
-
-.menu-column ul {
-    list-style: none;
-    padding: 0;
-}
-
-.menu-column a {
-    /* PROMENJENO: Svetli tekst zbog tamne pozadine */
-    color: #d6d6d6; 
-    font-size: 24px; 
-    font-weight: 600;
-    line-height: 1.5;
-    transition: color 0.2s;
-    opacity: 1; 
-}
-
-.menu-columnl a {
-    color: #dfdfdf; 
-    font-size: 9px; 
-    font-weight: 600;
-    line-height: 1.5;
-    transition: color 0.2s;
-    opacity: 1; 
-}
-
-.menu-column a:hover {
-    color: #0071e3; /* Plavi hover efekat */
-    text-decoration: none;
-}
-
-/* LOGIKA ZA PRIKAZIVANJE - NAJVAŽNIJI DEO */
-.nav-links li.has-dropdown:hover .mega-menu {
-    /* PROMENJENO: Prikazivanje sa tranzicijom */
-    opacity: 1;
-    visibility: visible;
+/* ========================================================================= */
+/* RESPONSIVE DIZAJN                           */
+/* ========================================================================= */
+@media (max-width: 768px) {
+  .footer-columns {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+  
+  .headline {
+      font-size: 32px;
+  }
+  .subhead {
+      font-size: 19px;
+  }
+  .nav-links {
+      display: none; /* Ovde bi inače išao hamburger meni */
+  }
+  
+  .grid-section {
+    grid-template-columns: 1fr; /* Na mobilnom jedna ispod druge */
+  }
 }
