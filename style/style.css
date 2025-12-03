@@ -400,6 +400,17 @@ hr {
     position: relative;
 }
 
+/* --- Z-INDEX FIX: Sadržaj iznad Mega Menija (z-index: 990) --- */
+.nav-links, /* Kontejner linkova */
+.nav-links li, /* Svaki pojedinačni link kontejner */
+.nav-links a, /* Sami linkovi */
+.fa-apple, /* Ikona loga */
+.fa-search, /* Ikona lupe */
+.fa-shopping-bag { /* Ikona korpe */
+    position: relative; 
+    z-index: 995 !important; /* Mora biti veće od 990 */
+}
+
 /* Osnovni stilovi za Mega Menu */
 .mega-menu {
     /* Skriveno po defaultu, sada koristimo opacity/visibility za tranziciju */
@@ -410,8 +421,6 @@ hr {
     
     left: 0;
     width: 100%;
-
-.mega-menu {
     /* ... (ostali stilovi ostaju isti) ... */
     
     /* KLJUČNO: Počinje na 0px, preklapajući navigaciju */
@@ -425,7 +434,6 @@ hr {
     padding-bottom: 50px;
     
     /* ... (ostali stilovi ostaju isti) ... */
-}
     
    /* KLJUČNA PROMENA: Crna, potpuno neprozirna boja (alpha 1.0) */
     background-color: rgba(22, 22, 23, 1.0); 
